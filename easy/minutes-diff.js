@@ -5,8 +5,6 @@ const timeObj = (str) => {
 	const amPm = str.slice(-2);
 	const [hours, mins] = str.slice(0, str.length - 2).split(':');
 	const timeObjDetails = {
-		hours: Number(hours),
-		mins: Number(mins),
 		amPm,
 		totalMins: Number(hours) * 60 + Number(mins),
 	};
@@ -28,19 +26,11 @@ function CountingMinutesI(str) {
 			);
 		}
 	} else {
-		if (firstTimeDetails.amPm === 'am') {
-			return (
-				HALF_DAY_IN_MINUTES -
-				firstTimeDetails.totalMins +
-				secTimeDetails.totalMins
-			);
-		} else {
-			return (
-				HALF_DAY_IN_MINUTES -
-				firstTimeDetails.totalMins +
-				secTimeDetails.totalMins
-			);
-		}
+		return (
+			HALF_DAY_IN_MINUTES -
+			firstTimeDetails.totalMins +
+			secTimeDetails.totalMins
+		);
 	}
 }
 
