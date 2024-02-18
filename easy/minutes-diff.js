@@ -1,5 +1,5 @@
-const HALF_DAY_IN_MINUTES = 720;
-const FULL_DAY_IN_MINUTES = 1440;
+const HALF_DAY_IN_MINUTES = 12 * 60;
+const FULL_DAY_IN_MINUTES = 24 * 60;
 
 const timeObj = (str) => {
 	const amPm = str.slice(-2);
