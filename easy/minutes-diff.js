@@ -15,22 +15,15 @@ function CountingMinutesI(str) {
 	const [firstTimeStr, secondTimeStr] = str.split('-');
 	const firstTimeDetails = timeObj(firstTimeStr);
 	const secTimeDetails = timeObj(secondTimeStr);
+	const timeDiff = secTimeDetails.totalMins - firstTimeDetails.totalMins;
 	if (firstTimeDetails.amPm === secTimeDetails.amPm) {
 		if (firstTimeDetails.totalMins < secTimeDetails.totalMins) {
-			return secTimeDetails.totalMins - firstTimeDetails.totalMins;
+			return timeDiff;
 		} else {
-			return (
-				FULL_DAY_IN_MINUTES -
-				firstTimeDetails.totalMins +
-				secTimeDetails.totalMins
-			);
+			return FULL_DAY_IN_MINUTES + timeDiff;
 		}
 	} else {
-		return (
-			HALF_DAY_IN_MINUTES -
-			firstTimeDetails.totalMins +
-			secTimeDetails.totalMins
-		);
+		return HALF_DAY_IN_MINUTES + timeDiff;
 	}
 }
 
